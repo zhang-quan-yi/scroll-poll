@@ -1,5 +1,4 @@
 <script>
-import Page from '../core/Page.js';
 import PageManager from '../core/PageManager.js';
 import Container from '../core/Container.js';
 
@@ -12,7 +11,8 @@ export default{
         scrollLimit: {
             type: [String,Number],
             default: Number.POSITIVE_INFINITY
-        }
+        },
+        getList: Function
     },
     data(){
         return {
@@ -67,7 +67,7 @@ export default{
         }
     },
     mounted(){
-        let pageManager = new PageManager(10,makeList);
+        let pageManager = new PageManager(10,this.getList);
         this.container = new Container(this.$refs.scrollOuter,this.$refs.scrollInner,pageManager);
         this.addPage();
     },

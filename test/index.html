@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>vue scroll poll</title>
+
+    <style>
+        html,body,#app{
+            height: 100%;
+            width: 100%;
+            padding: 0;
+            margin: 0;
+        }
+
+        .vue-scroll-poll{
+            background-color: #ddeecc;
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+        }
+        .scroll-outer{
+            height: 100%;
+            background-color: antiquewhite;
+            overflow-y: scroll;
+            -webkit-overflow-scrolling : touch;
+        }
+
+        .scroll-item{
+            background-color: white;
+            border: 4px solid;
+            padding: 22px;
+        }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+        <vue-scroll-poll :get-list="makeList"></vue-scroll-poll>
+    </div>
+    <!-- built files will be auto injected -->
+    <script src="vue.min.js"></script>
+    <script src="../dist/index.js"></script>
+    <script src="index.js"></script>
+  </body>
+</html>

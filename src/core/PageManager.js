@@ -16,6 +16,8 @@
  * updateLastPage: 更新新添加的分页的尺寸信息；
  * check: 计算将要显示哪些分页；
  */
+import Page from '../core/Page.js';
+
 class PageManager {
     constructor(pageSize,requestApi){
         this.currentPage = 0;
@@ -60,7 +62,7 @@ class PageManager {
         let length = this.pages.length;
         let page = this.pages[length-1];
         if(page){
-            page.updatePageHeight(oldHeight,innerHeight);
+            page.updatePage(oldHeight,innerHeight);
         }
     }
 

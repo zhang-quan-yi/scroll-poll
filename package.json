@@ -1,0 +1,39 @@
+{
+  "name": "vue-scroll-poll",
+  "version": "0.0.1",
+  "description": "",
+  "main": "./src/index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "build": "webpack",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zhang-quan-yi/scroll-poll.git"
+  },
+  "keywords": [
+    "vue",
+    "scroll poll",
+    "infinity scroll"
+  ],
+  "author": "zhhailei",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zhang-quan-yi/scroll-poll/issues"
+  },
+  "homepage": "https://github.com/zhang-quan-yi/scroll-poll#readme",
+  "devDependencies": {
+    "@babel/core": "^7.2.0",
+    "@babel/preset-env": "^7.2.0",
+    "babel-loader": "^8.0.4",
+    "css-loader": "^1.0.1",
+    "optimize-css-assets-webpack-plugin": "^5.0.1",
+    "vue-loader": "^15.4.2",
+    "vue-template-compiler": "^2.5.17",
+    "webpack": "^4.27.0",
+    "webpack-cli": "^3.1.2"
+  }
+}
