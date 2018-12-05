@@ -105,10 +105,10 @@ class PageManager {
             if(endPage){
                 endIndex = endPage.end;
                 paddingBottom = innerElHeight - endPage.yAxis - endPage.height;
-                console.log('endPage',endPage);
+                //console.log('endPage',endPage);
             }
         }
-        console.log('startIndex',index,paddingTop,paddingBottom,innerElHeight);
+        //console.log('startIndex',index,paddingTop,paddingBottom,innerElHeight);
         this.showList = this.rawList.slice(startIndex,endIndex+1);
 
         return {

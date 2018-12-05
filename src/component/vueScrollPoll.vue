@@ -91,7 +91,7 @@ export default{
     </div>
 </template>
 
-<style lang="css" scopted>
+<style lang="css" scoped>
     .vue-scroll-poll{
         height: 100%;
         width: 100%;
