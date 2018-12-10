@@ -3,6 +3,7 @@ const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
 
 module.exports = {
+    mode: 'production',
     entry: './src/index.js',
     output: {
         path: path.resolve(__dirname,'./dist'),

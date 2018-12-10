@@ -14,14 +14,16 @@
                 }
         
                 return (new Promise(function(resolve,reject){
-                    resolve(ret);
+                    setTimeout(function(){
+                        resolve(ret);
+                    },0);
                 }));
             }
         }
     }
 </script>
 <template>
-    <vue-scroll-poll :get-list="makeList"></vue-scroll-poll>
+    <vue-scroll-poll :get-list="makeList" :max-height="20000"></vue-scroll-poll>
 </template>
 
 <style lang="css">
@@ -31,19 +33,6 @@
         padding: 0;
         margin: 0;
     }
-    .scrollPoll{
-        background-color: #ddeecc;
-        height: 100%;
-        width: 100%;
-        overflow: hidden;
-    }
-    .scroll-outer{
-        height: 100%;
-        background-color: antiquewhite;
-        overflow-y: scroll;
-        -webkit-overflow-scrolling : touch;
-    }
-
     .scroll-item{
         background-color: white;
         border: 4px solid;

@@ -14,7 +14,7 @@ class Container{
         this.paddingBottom = 0;
 
         // 判断滚动到底部的误差值
-        this.offset = 10;
+        this.offset = 100;
     }
 
     requestData(){
