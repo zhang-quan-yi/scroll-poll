@@ -23,13 +23,11 @@
     }
 </script>
 <template>
-    <vue-scroll-poll :get-list="makeList" :max-height="20000"></vue-scroll-poll>
+    <vue-scroll-pool :get-list="makeList" :max-height="20000"></vue-scroll-pool>
 </template>
 
 <style lang="css">
     html,body,#app{
-        height: 100%;
-        width: 100%;
         padding: 0;
         margin: 0;
     }

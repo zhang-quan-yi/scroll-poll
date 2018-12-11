@@ -1,8 +1,8 @@
-import vueScrollPoll from './component/vueScrollPoll.vue';
+import vueScrollPool from './component/vueScrollPool.vue';
 
 const plugin = {
     install(Vue){
-        Vue.component('VueScrollPoll',vueScrollPoll);
+        Vue.component('VueScrollPool',vueScrollPool);
     }
 }
 

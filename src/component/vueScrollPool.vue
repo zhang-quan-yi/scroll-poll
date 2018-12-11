@@ -2,13 +2,13 @@
 import PageManager from '../core/PageManager.js';
 import Container from '../core/Container.js';
 
-let appendStyle = function(){
+let appendStyle = function(outerHeight){
     let css = '',
         head = document.head || document.getElementsByTagName('head')[0],
         style = document.createElement('style');
     
-    css = '.vsp-scroll-poll{height: 100%;width: 100%;overflow: hidden;}';
-    css += '.vsp-scroll-outer{height: 100%;overflow-y: scroll;-webkit-overflow-scrolling : touch;}';
+    css = '.vsp-scroll-pool{overflow: hidden;}';
+    css += '.vsp-scroll-outer{height: '+ outerHeight + 'px;overflow-y: scroll;-webkit-overflow-scrolling : touch;}';
     css += '.vsp-loading,.vsp-footer{color:#666;text-align:center;padding:10px 0;}';
     style.type = 'text/css';
 
@@ -25,7 +25,7 @@ export default{
     props: {
         outerHeight: {
             type: [String,Number],
-            default: '100%'
+            default: '100'
         },
         maxHeight: {
             type: [String,Number],
@@ -94,14 +94,16 @@ export default{
         this.addPage();
     },
     created(){
-        appendStyle();
+        // https://www.w3cplus.com/javascript/offset-scroll-client.html © w3cplus.com
+        let height = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+        appendStyle(height*this.outerHeight/100);
         this.container = null;
     }
 }
 </script>
 
 <template>
-    <div class="vsp-scroll-poll">
+    <div class="vsp-scroll-pool">
         <div class="vsp-scroll-outer" ref="scrollOuter" @scroll.passive="onscroll">
             <div class="vsp-scroll-inner" ref="scrollInner" :style="innerStyle">
                 <div v-for="(item) in list" class="scroll-item" :key="item">

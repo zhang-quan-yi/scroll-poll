@@ -1,10 +1,10 @@
 import Vue from 'vue';
 import App from './app.vue';
 
-//import VueScrollPoll from '../src/index.js';
-import VueScrollPoll from '../dist/index.js';
+import VueScrollPool from '../src/index.js';
+//import VueScrollPool from '../dist/index.js';
 
-Vue.use(VueScrollPoll);
+Vue.use(VueScrollPool);
 
 new Vue({
     render:(h)=>h(App)
