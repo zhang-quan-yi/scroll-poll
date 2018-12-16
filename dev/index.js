@@ -1,8 +1,8 @@
 import Vue from 'vue';
 import App from './app.vue';
 
-import VueScrollPool from '../src/index.js';
-//import VueScrollPool from '../dist/index.js';
+//import VueScrollPool from '../src/index.js';
+import VueScrollPool from '../dist/index.js';
 
 Vue.use(VueScrollPool);
 

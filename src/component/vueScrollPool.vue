@@ -8,7 +8,7 @@ let appendStyle = function(outerHeight){
         style = document.createElement('style');
     
     css = '.vsp-scroll-pool{overflow: hidden;}';
-    css += '.vsp-scroll-outer{height: '+ outerHeight + 'px;overflow-y: scroll;-webkit-overflow-scrolling : touch;}';
+    css += '.vsp-scroll-outer{height: '+ outerHeight + ';overflow-y: scroll;-webkit-overflow-scrolling : touch;}';
     css += '.vsp-loading,.vsp-footer{color:#666;text-align:center;padding:10px 0;}';
     style.type = 'text/css';
 
@@ -21,6 +21,20 @@ let appendStyle = function(outerHeight){
     head.appendChild(style);
 };
 
+let handleHeight = function(outerHeight){
+    let height;
+    // https://www.w3cplus.com/javascript/offset-scroll-client.html © w3cplus.com
+    let windowHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+    if(outerHeight.indexOf('px') !== -1){
+        height = parseFloat(outerHeight);
+    }else{
+        height = parseFloat(outerHeight) * windowHeight/100;
+    }
+    height = Math.min(windowHeight,height);
+    height += 'px';
+    return height;
+}
+
 export default{
     props: {
         outerHeight: {
@@ -31,7 +45,7 @@ export default{
             type: [String,Number],
             default: Number.POSITIVE_INFINITY
         },
-        getList: Function
+        getData: Function
     },
     data(){
         return {
@@ -88,16 +102,15 @@ export default{
         }
     },
     mounted(){
-        let pageManager = this.pageManager = new PageManager(10,this.getList);
+        let pageManager = this.pageManager = new PageManager(this.getData);
         // console.log('this.$refs.scrollOuter',this.$refs.scrollOuter);
         this.container = new Container(this.$refs.scrollOuter,this.$refs.scrollInner,pageManager);
         this.addPage();
     },
     created(){
-        // https://www.w3cplus.com/javascript/offset-scroll-client.html © w3cplus.com
-        let height = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
-        appendStyle(height*this.outerHeight/100);
         this.container = null;
+        let height = handleHeight(this.outerHeight);
+        appendStyle(height);
     }
 }
 </script>
@@ -111,10 +124,10 @@ export default{
                         <div>{{item}}</div>
                     </slot>
                 </div>
-                <slot name="loading" v-if="pageManager.isLoading">
+                <slot name="loading" v-if="pageManager.isLoading" v-cloak>
                     <div class="vsp-loading">加载中...</div>
                 </slot>
-                <slot name="footer" v-if="isReachFooter && !pageManager.isLoading">
+                <slot name="footer" v-if="isReachFooter && !pageManager.isLoading" v-cloak>
                     <div class="vsp-footer">加载完毕</div>
                 </slot>
             </div>

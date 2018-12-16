@@ -3,7 +3,6 @@
  * 
  * 属性：
  * currentPage: 总页码数
- * pageSize: 每页包含的列表数据数量
  * api: 请求新数据的接口，返回 Promise
  * rawList: 所有的列表数据；
  * showList: 在页面上显示的列表数据；
@@ -19,9 +18,8 @@
 import Page from '../core/Page.js';
 
 class PageManager {
-    constructor(pageSize,requestApi){
+    constructor(requestApi){
         this.currentPage = 0;
-        this.pageSize = pageSize;
 
         this.api = requestApi;
         this.rawList = [];
@@ -37,7 +35,7 @@ class PageManager {
         }
         this.isLoading = true;
         this.currentPage++;
-        return this.api(this.currentPage,this.pageSize).then(
+        return this.api(this.currentPage).then(
             listData=>{
                 let showList = this.addPage(listData);
                 return showList;
@@ -48,7 +46,7 @@ class PageManager {
     addPage(listData){
         // 这里要直接显示下一页的数据；而不是checkpage
         let start = this.rawList.length;
-        let end = this.pageSize - 1;
+        let end = listData.length - 1;
         let page = new Page(this.currentPage,start,end);
 
         this.pages.push(page);

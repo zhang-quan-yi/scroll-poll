@@ -1,8 +1,8 @@
 {
   "name": "vue-scroll-pool",
-  "version": "0.0.1",
-  "description": "",
-  "main": "./src/index.js",
+  "version": "0.1.0",
+  "description": "a infinity scroll component using the scroll pool theory,base on vue: 无限滚动组件，基于滚动池原理的 vue 组件",
+  "main": "./dist/index.js",
   "directories": {
     "test": "test"
   },
@@ -20,7 +20,7 @@
     "scroll pool",
     "infinity scroll"
   ],
-  "author": "zhhailei",
+  "author": "quanyi",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/zhang-quan-yi/scroll-poll/issues"
