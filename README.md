@@ -2,6 +2,7 @@
 
 ## 效果
 
+![](./images/vue-scroll-pool-demo.gif)
 ## 描述
 `vue-scroll-pool` 是一个**滚动加载组件**，模仿自微博移动端web版，它的特点是：
 1. 基于分页：每次滚动加载都是新增一页内容；
